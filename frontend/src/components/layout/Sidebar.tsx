@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, setActiveSection }) =>
             className="w-full h-full object-cover"
           />
         </div>
-        <h2 className="text-xl font-bold mb-4">Alex Smith</h2>
+        <h2 className="text-xl font-bold mb-4">MoroFuji</h2>
 
         <div className="flex justify-center space-x-2 mb-6">
           {SOCIAL_ICONS.map((social) => (

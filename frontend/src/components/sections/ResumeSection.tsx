@@ -3,44 +3,69 @@ import React from 'react';
 const ResumeSection: React.FC = () => {
   const experiences = [
     {
-      role: 'SENIOR GRAPHIC DESIGN SPECIALIST',
-      period: '2019 - Present',
-      company: 'Experion, New York, NY',
+      role: '予約システムの開発',
+      period: '2024年6月 ～ 現在',
+      skill: 'BE : Node.js、FE：React',
       description: [
-        'Lead in the design, development, and implementation of the graphic, layout, and production communication materials',
-        'Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.',
-        'Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design',
-        'Oversee the efficient use of production project budgets ranging from $2,000 - $25,000'
-      ]
-    }
+        'フルスタックエンジニアとしての経験を積む',
+        '要件定義から設計、実装、テストまで一貫して担当中',
+        '共通化を徹底し、開発効率を向上',
+      ],
+    },
+    {
+      role: '予約システムの新規開発',
+      period: '2023年10月 ～ 2024年5月',
+      skill: 'BE : Python',
+      description: [
+        '基幹システムを利用したサードパティシステムの開発',
+        '外部APIを使用したデータ連携の設計・実装をほぼ一人で行う',
+        'Python未経験での参画で圧倒的な成果を残す',
+      ],
+    },
+    {
+      role: 'インフラシステムの開発',
+      period: '2021年8月 ～ 2022年2月',
+      skill: 'BE：Java spring boot',
+      description: [
+        '実装途中からの参画',
+        '実装、テスト、リリースまで一貫して担当',
+        '他案件を担当しながらの保守運用',
+      ],
+    },
   ];
 
   const education = [
     {
-      degree: 'MASTER OF FINE ARTS & GRAPHIC DESIGN',
-      period: '2015 - 2016',
-      school: 'Rochester Institute of Technology, Rochester, NY',
-      description: 'Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit.'
-    }
+      degree: '情報工学',
+      period: '2016年4月 ～ 2020年3月',
+      school: '同志社大学',
+      description: '情報工学を学んでいたが、実務経験を積むために中退',
+    },
+    {
+      degree: '情報コース',
+      period: '2024年4月 ～ 現在',
+      school: '放送大学',
+      description: '学士の取得を目指して日々学習中',
+    },
   ];
 
   return (
     <section id="resume" className="min-h-screen p-16 bg-white">
-      <h2 className="text-3xl font-bold mb-8">Resume</h2>
+      <h2 className="text-3xl font-bold mb-8">職務経歴</h2>
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Experience Section */}
         <div>
-          <h3 className="text-2xl font-bold mb-6">Professional Experience</h3>
-          <div className="relative border-l-2 border-blue-500 pl-6 space-y-8">
+          <h3 className="text-2xl font-bold mb-6">実務経験</h3>
+          <div className="relative border-l-2 border-green-500 pl-6 space-y-8">
             {experiences.map((exp, index) => (
               <div key={index} className="relative">
-                <div className="absolute -left-[29px] w-4 h-4 bg-blue-500 rounded-full" />
+                <div className="absolute -left-[32px] w-4 h-4 bg-green-500 rounded-full" />
                 <h4 className="text-lg font-bold text-gray-900">{exp.role}</h4>
-                <span className="inline-block px-2 py-1 my-2 bg-blue-100 text-blue-800 text-sm rounded">
+                <span className="inline-block px-2 py-1 my-2 bg-blue-100 text-green-800 text-sm rounded">
                   {exp.period}
                 </span>
-                <p className="italic text-gray-600 mb-2">{exp.company}</p>
+                <p className="italic text-gray-600 mb-2">{exp.skill}</p>
                 <ul className="list-disc list-inside space-y-2">
                   {exp.description.map((item, idx) => (
                     <li key={idx} className="text-gray-600">{item}</li>
@@ -53,13 +78,13 @@ const ResumeSection: React.FC = () => {
 
         {/* Education Section */}
         <div>
-          <h3 className="text-2xl font-bold mb-6">Education</h3>
-          <div className="relative border-l-2 border-blue-500 pl-6 space-y-8">
+          <h3 className="text-2xl font-bold mb-6">学歴</h3>
+          <div className="relative border-l-2 border-green-500 pl-6 space-y-8">
             {education.map((edu, index) => (
               <div key={index} className="relative">
-                <div className="absolute -left-[29px] w-4 h-4 bg-blue-500 rounded-full" />
+                <div className="absolute -left-[32px] w-4 h-4 bg-green-500 rounded-full" />
                 <h4 className="text-lg font-bold text-gray-900">{edu.degree}</h4>
-                <span className="inline-block px-2 py-1 my-2 bg-blue-100 text-blue-800 text-sm rounded">
+                <span className="inline-block px-2 py-1 my-2 bg-blue-100 text-green-800 text-sm rounded">
                   {edu.period}
                 </span>
                 <p className="italic text-gray-600 mb-2">{edu.school}</p>
