@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Section } from './types';
+import Sidebar from './components/layout/Sidebar';
+import MainContent from './components/layout/MainContent';
 
-function App() {
+const App: React.FC = () => {
+  const [activeSection, setActiveSection] = useState<Section>('home');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex min-h-screen">
+      <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <MainContent setActiveSection={setActiveSection} />
     </div>
   );
-}
+};
 
 export default App;
