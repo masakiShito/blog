@@ -14,7 +14,7 @@ const NAVIGATION_ITEMS = [
   { id: 'about' as Section, label: 'About', icon: User },
   { id: 'resume' as Section, label: 'Resume', icon: FileText },
   { id: 'portfolio' as Section, label: 'Portfolio', icon: Image },
-  { id: 'services' as Section, label: 'Services', icon: Settings },
+  { id: 'Blog' as Section, label: 'Blog', icon: Settings },
   { id: 'contact' as Section, label: 'Contact', icon: Mail },
 ];
 

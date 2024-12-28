@@ -4,7 +4,7 @@ import HeroSection from '../sections/HeroSection';
 import AboutSection from '../sections/AboutSection';
 import ResumeSection from '../sections/ResumeSection';
 import PortfolioSection from '../sections/PortfolioSection';
-import ServicesSection from '../sections/ServicesSection';
+import BlogSection from '../sections/BlogSection';
 import ContactSection from '../sections/ContactSection';
 
 interface MainContentProps {
@@ -41,7 +41,7 @@ const MainContent: React.FC<MainContentProps> = ({ setActiveSection }) => {
       <AboutSection />
       <ResumeSection />
       <PortfolioSection />
-      <ServicesSection />
+      <BlogSection />
       <ContactSection />
     </div>
   );
