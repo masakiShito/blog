@@ -1,3 +1,4 @@
+// types/index.ts
 import { LucideIcon } from 'lucide-react';
 
 export type NavItem = {
@@ -22,12 +23,12 @@ export type SocialIconProps = {
   href: string;
 };
 
-export type NavBarProps = {
-  activeSection: string;
-  setActiveSection: (section: string) => void;
-};
+export type Section = 'home' | 'about' | 'resume' | 'portfolio' | 'services' | 'contact' | 'blog';
 
-export type Section = 'home' | 'about' | 'resume' | 'portfolio' | 'services' | 'contact';
+export type NavBarProps = {
+  activeSection: Section;
+  setActiveSection: (section: Section) => void;
+};
 
 export interface NavigationItemProps {
   id: Section;
@@ -35,4 +36,39 @@ export interface NavigationItemProps {
   icon: LucideIcon;
   isActive: boolean;
   onClick: (section: Section) => void;
+}
+
+export interface Tag {
+  id: number;
+  name: string;
+}
+
+export interface Category {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+export interface BlogPost {
+  id: number;
+  title: string;
+  content: string;
+  category: Category;  // CategoryオブジェクトへのReference
+  tags: Tag[];        // Tag配列へのReference
+  created_at: string;
+}
+
+export interface BlogListProps {
+  tag?: string;
+  index?: number;
+}
+
+// 必要に応じて追加の型
+export interface CategoryWithPosts extends Category {
+  posts: BlogPost[];
+}
+
+export interface RouteParams {
+  postId?: string;
+  categoryId?: string;
 }
