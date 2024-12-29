@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\PostController;  // 追加
+use App\Http\Controllers\Api\V1\PostController;// 追加
+use App\Http\Controllers\Api\V1\CategoryController;// 追加
+use App\Http\Controllers\Api\V1\TagController;// 追加
+use App\Http\Controllers\Api\V1\CommentController;// 追加
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +31,25 @@ Route::prefix('v1')->group(function () {
     Route::put('/posts/{post}', [PostController::class, 'update']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
     Route::get('/posts/published', [PostController::class, 'published']);
+
+    // Categories
+    Route::apiResource('categories', CategoryController::class);
+
+// Tags
+    Route::apiResource('tags', TagController::class);
+
+// Comments
+    Route::get('posts/{post}/comments', [CommentController::class, 'index']);
+    Route::post('posts/{post}/comments', [CommentController::class, 'store']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::put('comments/{comment}', [CommentController::class, 'update']);
+        Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
+        Route::post('comments/{comment}/approve', [CommentController::class, 'approve']);
+        Route::post('comments/{comment}/spam', [CommentController::class, 'spam']);
+    });
+
+    // Auth routes (if not already added)
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
