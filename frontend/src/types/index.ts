@@ -56,6 +56,7 @@ export interface BlogPost {
   category: Category;  // CategoryオブジェクトへのReference
   tags: Tag[];        // Tag配列へのReference
   created_at: string;
+  thumbnail_url?: string; // アイキャッチ画像のURL
 }
 
 export interface BlogListProps {
