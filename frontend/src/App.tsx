@@ -1,7 +1,9 @@
+// src/App.tsx
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Section } from './types';
-import Sidebar from './components/layout/Sidebar';
+import Layout from './components/Layout';
+import BlogLayout from './components/blog/BlogLayout';
 import MainContent from './components/layout/MainContent';
 import BlogList from './components/blog/BlogList';
 import BlogPost from './components/blog/BlogPost';
@@ -12,15 +14,40 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <div className="flex min-h-screen">
-        <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-        <Routes>
-          <Route path="/" element={<MainContent setActiveSection={setActiveSection} />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/category/:categoryId" element={<BlogCategory />} />
-          <Route path="/blog/:postId" element={<BlogPost />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout activeSection={activeSection} setActiveSection={setActiveSection}>
+              <MainContent setActiveSection={setActiveSection} />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <BlogLayout>
+              <BlogList />
+            </BlogLayout>
+          }
+        />
+        <Route
+          path="/blog/category/:categoryId"
+          element={
+            <BlogLayout>
+              <BlogCategory />
+            </BlogLayout>
+          }
+        />
+        <Route
+          path="/blog/:postId"
+          element={
+            <BlogLayout>
+              <BlogPost />
+            </BlogLayout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 };

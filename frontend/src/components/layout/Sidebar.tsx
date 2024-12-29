@@ -1,5 +1,6 @@
+// src/components/layout/Sidebar.tsx
 import React from 'react';
-import { Home, User, FileText, Image, Settings, Mail, Twitter, Facebook, Instagram, Linkedin, LucideIcon } from 'lucide-react';
+import {Home, User, FileText, Image, Settings, Mail, Twitter, Facebook, Linkedin, Instagram} from 'lucide-react';
 import { Section } from '../../types';
 import NavigationItem from '../common/NavigationItem';
 import SocialIcon from '../common/SocialIcon';
@@ -14,7 +15,7 @@ const NAVIGATION_ITEMS = [
   { id: 'about' as Section, label: 'About', icon: User },
   { id: 'resume' as Section, label: 'Resume', icon: FileText },
   { id: 'portfolio' as Section, label: 'Portfolio', icon: Image },
-  { id: 'Blog' as Section, label: 'Blog', icon: Settings },
+  { id: 'blog' as Section, label: 'Blog', icon: Settings },
   { id: 'contact' as Section, label: 'Contact', icon: Mail },
 ];
 

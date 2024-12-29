@@ -1,3 +1,4 @@
+// src/components/blog/BlogList.tsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Tag as TagIcon, ChevronRight, Clock } from 'lucide-react';
@@ -39,20 +40,18 @@ const BlogList: React.FC<BlogListProps> = ({ tag, index }) => {
 
   if (loading) {
     return (
-      <div className="flex-1 ml-64"> {/* サイドバーの幅分のマージンを追加 */}
-        <div className="flex justify-center items-center w-full h-screen bg-green-50">
-          <div className="relative w-24 h-24">
-            <div className="absolute top-0 left-0 w-full h-full border-8 border-green-200 rounded-full animate-ping" />
-            <div className="absolute top-0 left-0 w-full h-full border-8 border-green-500 rounded-full animate-pulse" />
-          </div>
+      <div className="flex justify-center items-center w-full h-screen bg-green-50">
+        <div className="relative w-24 h-24">
+          <div className="absolute top-0 left-0 w-full h-full border-8 border-green-200 rounded-full animate-ping" />
+          <div className="absolute top-0 left-0 w-full h-full border-8 border-green-500 rounded-full animate-pulse" />
         </div>
       </div>
     );
   }
 
   return (
-    <main className="flex-1 ml-64 bg-gradient-to-br from-green-50 to-white min-h-screen">
-      <div className="container mx-auto px-6 py-12">
+    <main className="bg-gradient-to-br from-green-50 to-white min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <header className="mb-12 text-center">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
             記事一覧
@@ -72,14 +71,11 @@ const BlogList: React.FC<BlogListProps> = ({ tag, index }) => {
                 className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
               >
                 <Link to={`/blog/${post.id}`} className="block overflow-hidden">
-                  {/* サムネイル画像部分 */}
                   <div className="relative h-48 bg-gradient-to-r from-green-500 to-emerald-500 overflow-hidden">
                     <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-0 transition-opacity" />
                   </div>
 
-                  {/* コンテンツ部分 */}
                   <div className="p-6">
-                    {/* カテゴリー＆日付 */}
                     <div className="flex items-center justify-between text-sm mb-4">
                       <span className="px-3 py-1 bg-green-50 text-green-600 rounded-full font-medium">
                         {post.category?.name || 'Article'}
@@ -90,17 +86,14 @@ const BlogList: React.FC<BlogListProps> = ({ tag, index }) => {
                       </time>
                     </div>
 
-                    {/* タイトル */}
                     <h2 className="text-xl font-bold mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
                       {post.title}
                     </h2>
 
-                    {/* 記事プレビュー */}
                     <p className="text-gray-600 mb-4 line-clamp-3">
                       {post.content}
                     </p>
 
-                    {/* タグ */}
                     {post.tags && post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-4">
                         {post.tags.map((tag: Tag) => (
@@ -115,7 +108,6 @@ const BlogList: React.FC<BlogListProps> = ({ tag, index }) => {
                       </div>
                     )}
 
-                    {/* Read More リンク */}
                     <div className="flex items-center text-green-600 font-medium mt-4 group-hover:translate-x-2 transition-transform">
                       Read More
                       <ChevronRight className="w-5 h-5 ml-1 group-hover:ml-2 transition-all" />
